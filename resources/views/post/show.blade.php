@@ -11,7 +11,6 @@
 <body>
     <h1 class="text-4xl font-bold text-center mb-5">My Website</h1>
     <hr class="mb-5">
-    @foreach ($posts as $post)
     <div class="w-2/3 mx-auto mb-24">
         <div>
             <h2 class="text-3xl font-bold mb-5">{{$post->title}}</h2>
@@ -25,13 +24,13 @@
                 <img src="/images/{{$post->cover}}" alt="" class="w-full h-full object-cover">
             </div>
             <div>
-                {!!Str::limit($post->content,100)!!}
-                <div class="my-3">
-                    <a href="{{route('post.show',$post->id)}}" class="px-8 py-2 bg-amber-300 rounded">繼續閱讀</a>
-                </div>
+                {!!$post->content!!}
+            </div>
+            <div class="my-3">
+                <a href="{{route('post.index')}}" class="px-8 py-2 bg-amber-300 rounded">文章列表</a>
+
             </div>
         </div>
     </div>
-    @endforeach
 </body>
 </html>
