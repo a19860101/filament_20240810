@@ -1,0 +1,16 @@
+created:
+    - database/factories/PostFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/TagFactory.php
+    - database/migrations/2024_08_10_020714_create_posts_table.php
+    - database/migrations/2024_08_10_020715_create_categories_table.php
+    - database/migrations/2024_08_10_020716_create_tags_table.php
+    - database/migrations/2024_08_10_020717_create_post_tag_table.php
+    - app/Models/Post.php
+    - app/Models/Category.php
+    - app/Models/Tag.php
+models:
+    User: {  }
+    Post: { title: 'string:400', content: longtext, published_at: 'nullable timestamp', category_id: 'unsignedInteger nullable', relationships: { belongsTo: Category, belongsToMany: Tag } }
+    Category: { title: 'string:50', slug: 'string:50', relationships: { hasMany: Post } }
+    Tag: { title: 'string:50', relationships: { belongsToMany: Post } }

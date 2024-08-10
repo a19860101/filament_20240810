@@ -1,0 +1,18 @@
+models:
+  Post:
+    title: string:400
+    content: longtext
+    published_at: nullable timestamp
+    category_id: unsignedInteger nullable
+    relationships:
+      belongsTo: Category
+      belongsToMany: Tag
+  Category:
+    title: string:50
+    slug: string:50
+    relationships:
+      hasMany: Post
+  Tag:
+    title: string:50
+    relationships:
+      belongsToMany: Post
